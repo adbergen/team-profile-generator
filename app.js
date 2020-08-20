@@ -1,136 +1,98 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const Employee = require("./lib/Employee");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-var validator = require("email-validator");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "main.html");
 
 const render = require("./lib/htmlRenderer");
-const team = [];
 
-function addMore() {
-  inquirer.prompt([{
-    type: "list",
-    choices: ["Yes", "No"],
-    message: "Would you like to add more team members?",
-    name: "addmore",
-  }]).then(function (response) {
-    this.response = response.addmore;
-    if (this.response === "Yes") {
-      return askQuestions();
-    } else {
-      if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR);
-      }
-      fs.writeFile(outputPath, render(team), "utf8", function (error) {
-        if (error) {
-          console.log(error);
-          return;
-        }
-      });
-      return console.log("Success. HTML has been created. Please navigate to the output folder to view your results")
-    }
-  });
-}
+const employees = [];
 
-
-
-function askQuestions() {
-
-  inquirer.prompt([
+const promptUser = function () {
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "Please enter the employee's name."
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "Please entter the employee's ID."
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Please enter the employee's email."
+    },
     {
       type: "list",
-      choices: ["Manager", "Engineer", "Intern"],
-      message: "What is your role in the company?",
-      name: "role"
+      name: "role",
+      message: "Please enter the employee's role.",
+      choices: ["Manager", "Engineer", "Intern"]
     },
     {
       type: "input",
-      message: "What is your full name?",
-      name: "name"
+      name: "officeNumber",
+      message: "Please enter the manager's office number.",
+      when: function (answer) {
+        answer.role === "Manager"
+      }
     },
     {
       type: "input",
-      message: "What is your ID number?",
-      name: "id"
+      name: "gitHub",
+      message: "Please enter the engineer's gitHub username.",
+      when: function (answer) {
+        answer.role === "Engineer"
+      }
     },
-  ]).then(function (response) {
-    this.name = response.name;
-    this.id = response.id;
-    this.role = response.role;
-
-    function checkEmail() {
-      inquirer.prompt([
-        {
-          type: "email",
-          message: "What is your email address",
-          name: "email"
-        }
-      ]).then(function (response) {
-        this.email = response.email;
-        if (validator.validate(this.email)) {
-          this.email = response.email;
-          if (this.role === "Manager") {
-            inquirer.prompt([
-              {
-                type: "input",
-                message: "What is your office number?",
-                name: "officeNumber"
-              }
-            ]).then(function (response) {
-              this.officeNumber = response.officeNumber;
-              const newManager = new Manager(this.name, this.id, this.email, this.officeNumber);
-              console.log("Success. The team has a new manager.");
-              team.push(newManager);
-            }).then(function () {
-              addMore();
-            });
-          } else if (this.role === "Engineer") {
-            inquirer.prompt([
-              {
-                type: "input",
-                message: "What is your gitHub username?",
-                name: "gitHub"
-              }
-            ]).then(function (response) {
-              this.gitHub = response.gitHub;
-              const newEngineer = new Engineer(this.name, this.id, this.email, this.gitHub);
-              console.log("Success. The team has a new engineer.");
-              team.push(newEngineer);
-            }), then(function () {
-              addMore();
-            });
-          } else if (this.role === "Intern") {
-            inquirer.prompt([
-              {
-                type: "input",
-                message: "What college did you attend?",
-                name: "school"
-              }
-            ]).then(function (response) {
-              this.school = response.school;
-              const newIntern = new Intern(this.name, this.id, this.email, this.school);
-              console.log("Success. The team has a new intern.");
-              team.push(newIntern);
-            }).then(function () {
-              addMore();
-            });
-          };
-        } else {
-          console.log("Please enter a valid email address.");
-          checkEmail();
-        }
-      })
-    };
-    checkEmail();
-  });
-};
-askQuestions();
+    {
+      type: "input",
+      name: "school",
+      message: "Please enter the intern's school name.",
+      when: function (answer) {
+        answer.role === "Intern"
+      }
+    },
+  ]).then(function (content) {
+    console.log(content);
+    addEmployee();
+    switch (content.role) {
+      case "Manager":
+        const addManager = new Manager(
+          content.name,
+          content.id,
+          content.email,
+          content.officeNumber
+        )
+        employees.push(addManager);
+        break;
+      case "Engineer":
+        const addEngineer = new Engineer(
+          content.name,
+          content.id,
+          content.email,
+          content.gitHub
+        )
+        employees.push(addEngineer);
+        break;
+      case "Intern":
+        const addIntern = new Intern(
+          content.name,
+          content.id,
+          content.email,
+          content.school
+        )
+        employees.push(addIntern);
+        break;
+    }
+  })
+}
 
 
 // Write code to use inquirer to gather information about the development team members,
