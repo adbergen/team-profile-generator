@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
@@ -17,7 +21,16 @@
   },
   "homepage": "https://github.com/adbergen/team-profile-generator#readme",
   "dependencies": {
-    "inquirer": "^7.3.3"
+    "email": "^0.2.6",
+    "email-existence": "^0.1.6",
+    "email-validator": "^2.0.4",
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.3",
+    "onvalidation": "^2.2.0",
+    "path": "^0.12.7",
+    "validate": "^5.1.0",
+    "validator": "^13.1.1",
+    "var": "^0.4.0"
   },
   "devDependencies": {
     "jest": "^26.4.0"
