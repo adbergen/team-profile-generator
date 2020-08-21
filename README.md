@@ -1,6 +1,6 @@
 # team-profile-generator
 
-- This is a README Generator application that allows the user to generate a readme that includes answers relevant to the user's github project. This application will run in the browser with a clean and polished user interface.
+- This is a software engineering team generator command line application that allows the user to generate an HTML webpage that displays summaries fo reach employee that includes answers relevant to the user's github project.
 
 ---
 
@@ -14,9 +14,23 @@
 ```
 - README.md (this file)
 
-- index.js
+- app.js
 
-- generateMarkdown.js
+- employee.test.js
+
+- engineer.test.js
+
+- intern.test.js
+
+- manager.test.js
+
+- engineer.html
+
+- intern.html
+
+- main.html
+
+- manager.html
 
 - generatedREADME.md
 
@@ -41,6 +55,8 @@
 
 - Javascript, JQuery, and JSON are used as the interpreters
 
+- Jest is used as a testing framework.
+
 ```
 
 ---
@@ -52,15 +68,11 @@
 
 - GitHub repository with README describing the project
 
-- .gitignore file created to include node_modules/ and .DS_Store/
+- User can use the CLI to generate an HTML age that displays imfornation about their team
 
-- package.json included with required dependencies
+- All unit tests pass.
 
 - Video of the typical user flow through application including views of prompts and responses
-
-- 1 badge included
-
-- Sections included: title, description, table of contents, installation, usage, license, contributing, tests, questions
 
 ```
 
