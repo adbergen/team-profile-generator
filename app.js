@@ -4,14 +4,10 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "main.html");
-
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
-
 const employees = [];
-
 const promptUser = function () {
   return inquirer.prompt([
     {
@@ -68,7 +64,7 @@ const promptUser = function () {
           content.name,
           content.id,
           content.email,
-          content.officeNumber
+          content.officeNumber,
         )
         employees.push(addManager);
         break;
@@ -77,7 +73,7 @@ const promptUser = function () {
           content.name,
           content.id,
           content.email,
-          content.gitHub
+          content.gitHub,
         )
         employees.push(addEngineer);
         break;
@@ -86,14 +82,36 @@ const promptUser = function () {
           content.name,
           content.id,
           content.email,
-          content.school
+          content.school,
         )
         employees.push(addIntern);
         break;
     }
+  });
+};
+const addEmployee = function () {
+  inquirer.prompt(
+    {
+      type: "confirm",
+      name: "add",
+      message: "Would you like to add another employee?"
+    }
+  ).then(function (answer) {
+    if (answer.add === true) {
+      promptUser();
+    }
+    else {
+      fs.writeFile(outputPath, render(employees), function (err) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Success! Employee has been added to the team");
+        console.log("Our team: ", employees);
+      })
+    }
   })
 }
-
+promptUser();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)

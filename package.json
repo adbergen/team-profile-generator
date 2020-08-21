@@ -1,7 +1,7 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "- This is a README Generator application that allows the user to generate a readme that includes answers relevant to the user's github project. This application will run in the browser with a clean and polished user interface.",
   "main": "app.js",
   "directories": {
     "lib": "lib",
@@ -21,18 +21,9 @@
   },
   "homepage": "https://github.com/adbergen/team-profile-generator#readme",
   "dependencies": {
-    "email": "^0.2.6",
-    "email-existence": "^0.1.6",
-    "email-validator": "^2.0.4",
-    "fs": "0.0.1-security",
-    "inquirer": "^7.3.3",
-    "onvalidation": "^2.2.0",
-    "path": "^0.12.7",
-    "validate": "^5.1.0",
-    "validator": "^13.1.1",
-    "var": "^0.4.0"
+    "inquirer": "^7.3.3"
   },
   "devDependencies": {
-    "jest": "^26.4.0"
+    "jest": "^26.4.1"
   }
 }
