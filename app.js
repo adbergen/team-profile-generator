@@ -35,25 +35,19 @@ const promptUser = function () {
       type: "input",
       name: "officeNumber",
       message: "Please enter the manager's office number.",
-      when: function (answer) {
-        answer.role === "Manager"
-      }
+      when: (answer) => answer.role === "Manager"
     },
     {
       type: "input",
       name: "gitHub",
       message: "Please enter the engineer's gitHub username.",
-      when: function (answer) {
-        answer.role === "Engineer"
-      }
+      when: (answer) => answer.role === "Engineer"
     },
     {
       type: "input",
       name: "school",
       message: "Please enter the intern's school name.",
-      when: function (answer) {
-        answer.role === "Intern"
-      }
+      when: (answer) => answer.role === "Intern"
     },
   ]).then(function (content) {
     console.log(content);
