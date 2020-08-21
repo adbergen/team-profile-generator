@@ -4,10 +4,9 @@
 
 ---
 
-[Video walkthrough](https://drive.google.com/file/d/1GSQXny40JmoWirpDX4inkNKwIUCzE51e/view)
+[Video walkthrough](https://drive.google.com/file/d/1Oq7LiY2mcf2A99yc5mG1w3OYhTQQEhaT/view)
 
-![image of demo](/img/demo.png)
-![image of demo](/img/demo1.png)
+![image of demo](/assets/demo.png)
 
 ## File Contents
 
@@ -41,8 +40,6 @@
 - .gitignore
 
 - demo.png
-
-- demo1.png
 
 ```
 
