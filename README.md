@@ -1,77 +1,84 @@
-# team-profile-generator
+<h1 align="center">
+Team Profile Generator
+</h1>
+<h4 align="center" style="margin-bottom:10px">Be sure to star my configuration repo so you can keep up to date on any daily progress!</h4>
+<div align="center">
+  <h4>
+    </a>
+    <a href="https://github.com/adbergen/team-profile-generator/stargazers"><img src="https://img.shields.io/github/stars/adbergen/team-profile-generator.svg?style=plasticr"/></a>
+    <a href="https://github.com/adbergen/team-profile-generator/commits/master"><img src="https://img.shields.io/github/last-commit/adbergen/team-profile-generator.svg?style=plasticr"/></a>
+        <a href="https://github.com/adbergen/team-profile-generator/commits/master"><img src="https://img.shields.io/github/commit-activity/y/adbergen/team-profile-generator.svg?style=plasticr"/></a>
+</h4>
+<br>
+</div>
+<p align="center"><font size="3">
+This is a software engineering team generator command line application</p>
+<div align="center"><a name="menu"></a>
+  <h4>
+    <a href="https://github.com/adbergen/team-profile-generator">
+      Github Repository
+    </a>
+<span> | </span>
+<a href="https://adbergen.github.io/team-profile-generator/">
+      Github Pages
+    </a>
+    <span> | </span>
+<a href="https://drive.google.com/file/d/1Oq7LiY2mcf2A99yc5mG1w3OYhTQQEhaT/view">
+      Video Walkthrough
+    </a>
+  </h4>
+</div>
 
-- This is a software engineering team generator command line application that allows the user to generate an HTML webpage that displays summaries fo reach employee that includes answers relevant to the user's github project.
+![Screenshot of application demo](assets/demo.png)
 
----
+<hr>
 
-[Video walkthrough](https://drive.google.com/file/d/1Oq7LiY2mcf2A99yc5mG1w3OYhTQQEhaT/view)
+## Table of Contents
 
-![image of demo](/assets/demo.png)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
 
-## File Contents
+<hr>
 
-```
-- README.md (this file)
+## Installation
 
-- app.js
+<br>
+Using npm:
 
-- employee.test.js
+<br>
+<br>
 
-- engineer.test.js
+    npm install && node app
 
-- intern.test.js
+<hr>
 
-- manager.test.js
+## Usage
 
-- engineer.html
+- This application allows the user to generate an HTML webpage that displays summaries for each employee
+- Summaries of each employee includes answers relevant to the user's input.
 
-- intern.html
+<hr>
 
-- main.html
+## Technologies
 
-- manager.html
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Bootstrap</li>
+<li>Javascript, JQuery, JSON</li>
+<li>Node.js</li>
+<li>Jest</li>
+<li>GitHub</li>
+</ul>
 
-- generatedREADME.md
+<hr>
 
-- package.json
+## Contributing
 
-- package-lock.json
+- Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-- .gitignore
+- Contributors: Anthony Bergen
 
-- demo.png
-
-```
-
----
-
-## Languages Used
-
-```
-- node.js is used as the runtime environment
-
-- Javascript, JQuery, and JSON are used as the interpreters
-
-- Jest is used as a testing framework.
-
-```
-
----
-
-## Requirements Met
-
-```
-- Functional, deployed application to GitHub Pages
-
-- GitHub repository with README describing the project
-
-- User can use the CLI to generate an HTML age that displays imfornation about their team
-
-- All unit tests pass.
-
-- Video of the typical user flow through application including views of prompts and responses
-
-```
-
----
----
+<hr><hr>
